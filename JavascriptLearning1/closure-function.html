@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function outerFunction( a) {
+            var addNum = function ( b ) {
+                return a + b;
+            }
+            return addNum;
+        }
+
+        var addTen = outerFunction( 10 );
+        var addTwenty = outerFunction( 20 );
+        console.dir( addTen(10) );
+        console.dir( addTwenty(10));
+    </script>
+</body>
+</html>
+
+
+function multiplyWith( multiplier ) {
+    var multiply = function ( multiplied ) {
+        return multiplier * multiplied;
+    }
+    return multiply;
+}
+
+
+var multiplyWith10 = multiplyWith( 10 );
+var multiplyWith20 = multiplyWith ( 20 );
+
+

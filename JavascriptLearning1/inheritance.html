@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        var Job = function ( ) {
+            this.pays = true;
+            this.name = '';
+        }
+
+        Job.prototype.print = function () {
+            console.log( this.pays ? 'Please hire me.' : 'No, thanks' );
+        }
+
+        var SoftwareJob = function ( title, pays) {
+            Job.call(this);
+            this.pays = pays;
+            this.title = title;
+        }
+
+        SoftwareJob.prototype = Object.create( Job.prototype );
+        SoftwareJob.prototype.constructor = SoftwareJob;
+
+
+
+        var softwarePosition = new SoftwareJob('Javascript', true );
+        var softwarePosition2 = new SoftwareJob('VB', false );
+        softwarePosition.print();
+        softwarePosition2.print()
+
+        var User = function () {
+            this.name = 'Default User Name';
+        }
+
+        User.prototype.printName = function () {
+            console.log( 'Name = ' + this.name );
+        }
+
+        var Employee = function ( name , salary ) {
+            User.call( this );
+            if ( name ) {
+                this.name = name;
+            }
+            this.salary = salary;
+        }
+
+        Employee.prototype = Object.create( User.prototype );
+        Employee.prototype.constructor = Employee;
+
+        var employee1 = new Employee ( null , 100000 );
+        var employee2 = new Employee ( 'Jayesh', 200000 );
+
+        console.log ( employee1.printName() );
+        console.log ( employee2.printName() );
+
+    </script>
+
+
+
+inside subclass
+
+SuperClass.call( this );
+
+outside SubClass:
+
+SubClass.prototype = Object.create( Superclass.prototype );
+Subclass.prototype.constructor = Subclass;
+
+</body>
+</html>

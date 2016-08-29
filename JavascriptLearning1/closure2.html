@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var outerValue = 'ninja';
+    var later;
+    function outerFunction() {
+        var innerValue = 'samurai';
+        function innerFunction(paramValue) {
+            console.log(outerValue + "Inner can see the ninja.");
+            console.log (innerValue +"Inner can see the samurai.");
+            console.log(paramValue + "Inner can see the wakizashi.");
+            console.log(tooLate + "Inner can see the ronin.");
+        }
+        later = innerFunction;
+    }
+    console.log (!tooLate + "Outer can't see the ronin.");
+    var tooLate = 'ronin';
+    outerFunction();
+    later('wakizashi');
+</script>
+</body>
+</html>

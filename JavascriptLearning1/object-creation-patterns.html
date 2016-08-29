@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Javascript Design Patterns</title>
+</head>
+<body>
+    <script>
+
+        //factory pattern
+        var chocolateFactory = function ( name, type, shape ) {
+
+            return {
+                name: name,
+                type: type,
+                shape: shape,
+
+                printDetails: function () {
+                    console.log('Factory Pattern');
+                    console.log(this.name + ' is a ' + this.type + ' which is ' + this.shape);
+                }
+            }
+        }
+
+        var chocolate = chocolateFactory('Hersheys', 'dark', 'cubes');
+        chocolate.printDetails();
+
+
+
+        //constructor pattern
+        var fruit = function ( name, color, taste ){
+            this.name = name;
+            this.color = color;
+            this.taste = taste;
+
+            this.printFruit = function () {
+                console.log ( 'Constructor Pattern');
+                console.log ( this.name + ' is a fruit that is ' + this.color + ' and is ' + this.taste );
+            }
+
+        }
+
+        var apple = new fruit ('Apple', 'red', 'sweet');
+        apple.printFruit();
+
+        //Prototype Pattern
+        var PersonProto = function () {
+            this.state = 'another state';
+        };
+
+        PersonProto.prototype.name = 'no name';
+        PersonProto.prototype.age = 'no age';
+        PersonProto.prototype.state = 'no state';
+
+        PersonProto.prototype.printName = function () {
+            console.log( 'Prototype Pattern of creating objects')
+            console.log( 'Name = ' + this.name + ' Age = ' + this.age + ' State = ' + this.state );
+        }
+
+        var person1 = new PersonProto ();
+        person1.name = 'Jayesh';
+        person1.age = '35';
+//        person1.state = 'CA';
+
+        person1.printName();
+
+
+        //Dynamic Pattern
+        var vehicleDynamicProto = function ( make, model, year ) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+
+            if( typeof this.printDetails !== 'function' ) {
+                vehicleDynamicProto.prototype.printDetails = function () {
+                    console.log( 'Dynamic Prototype Pattern');
+                    console.log ( 'Make = ' + this.make + ' Model = ' + this.model + ' Year = ' + this.year );
+                }
+            }
+        }
+
+        var hondaCRV = new vehicleDynamicProto( 'Honda', 'CRV', '2010');
+
+        hondaCRV.printDetails();
+
+    </script>
+
+</body>
+</html>

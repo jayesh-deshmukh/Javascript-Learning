@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+
+//    function addNumbers( firstNumber){
+//
+//      var response = "The result = ";
+//      function add( lastNumber ){
+//        return response + ( firstNumber + lastNumber);
+//      }
+//      return add;
+//    }
+      function addNumbers( a ){
+        var add = function (b) {
+          return a + b;
+        }
+        return add;
+      }
+
+    var addTen = addNumbers( 10 );
+
+    var result =  addTen(2);
+
+
+    document.write(result);
+      document.write( addTen(10) );
+
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>
+
+

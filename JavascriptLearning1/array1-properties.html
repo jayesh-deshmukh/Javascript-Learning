@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <div id="first"></div>
+    <div id="second"></div>
+    <script>
+        var elems = {
+            length: 0,
+            add: function( elem ){
+                Array.prototype.push.call( this, elem );
+            },
+            gather: function ( elementId ){
+                this.add( document.getElementById( elementId ) );
+            }
+        };
+
+        elems.gather( "first" );
+        elems.gather( "second" );
+        console.log( elems[0]);
+        console.log( elems[1]);
+
+    </script>
+</body>
+</html>

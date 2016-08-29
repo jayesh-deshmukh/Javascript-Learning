@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <script>
+     function merge( root ) {
+        for ( var i= 1; i< arguments.length; i++ ) {
+            console.log( "root = " + root.a );
+
+            console.log( 'argument index: ' + i );
+            console.log( 'arguments = ' + arguments.length );
+
+             for ( key in arguments[i] ) {
+                 console.log( 'index + argument :' + i + key );
+                root[key] = arguments[i][key];
+             }
+
+        }
+         return root;
+     }
+
+        console.log( merge({a:123}, {b:'jayesh'}, {c:'viva',d:'1'}) );
+    </script>
+</body>
+</html>

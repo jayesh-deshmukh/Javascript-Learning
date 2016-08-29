@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<div id="box"> Jayesh</div>
+<div id="box2">Deshmukh</div>
+<script type="text/javascript">
+
+    function animateIt( elementId )
+    {
+        var tick = 0;
+        var totalTicks = 0;
+        var elem = document.getElementById(elementId) ;
+        var timer = setInterval( function () {
+            if (tick < 100) {
+                elem.style.margin = tick + "px";
+                tick++;
+                totalTicks++;
+            }
+            else {
+                tick = 0;
+                if (totalTicks > 1000) {
+                    clearInterval(timer);
+                    elem.style.margin = 5 + "px";
+                }
+                console.log('value of tick =' + tick);
+                console.log(tick == 100 + "Tick accessed via a closure.");
+                console.log(elem +
+                        "Element also accessed via a closure.");
+                console.log(timer + " Timer reference also obtained via a closure.");
+            }
+        }, 10);
+    }
+    animateIt('box');
+    animateIt('box2');
+</script>
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+</body>
+</html>

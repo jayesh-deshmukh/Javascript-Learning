@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function factorial(n){
+        if(n===1 || n === 0 ){
+          return 1;
+        }
+        return n * factorial(n-1);
+      }
+      function callFactorial(){
+        try{
+        alert(factorial(document.getElementById("inputNumber")));
+      }catch(e){
+          document.write('Error Message: ' + e.message + '<br/>');
+          document.write('Error Code: ' + e.description + '<br/>');
+          document.write('Stack Trace: '+ e.stack + '<br/>');
+      }finally{
+        document.write('Finally block is always executed');
+      }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" name="name" value="Calculate Faotorial" onclick="callFactorial()">
+    <input type="text" name="inputNumber" value="" id="inputNumber">
+
+  </body>
+</html>

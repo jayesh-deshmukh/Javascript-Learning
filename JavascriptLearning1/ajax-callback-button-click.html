@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<body>
+    <button id="getData">Click Me</button>
+    <div id="result"></div>
+    <script>
+        $( '#getData' ).click( function (){
+
+            var result = $('#result').html("Loading...");
+            $.ajax({
+                url: 'test.html',
+                success: function( html ){
+                    result.html( html );
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>

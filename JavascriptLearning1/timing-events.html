@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <div class="" id="currentTime">
+
+    </div>
+    <input type="button" name="name" value="StartClock" onclick="startClock()">
+    <input type="button" name="name" value="StopClock" onclick="stopClock()">
+
+    <br/>
+    <input type="text" value="10" id="timer">
+    <input type="button" name="name" value="Start Timer" onclick="startTimer('timer')">
+    <input type="button" name="name" value="Stop Timer" onclick="stopTimer()">
+
+    <script type="text/javascript">
+      var displayedTime, count;
+      function displayCurrentTime(){
+        document.getElementById('currentTime').innerHTML = new Date();
+      }
+
+      function startClock(){
+        displayedTime = setInterval(displayCurrentTime, 1000);
+      }
+
+      function stopClock(){
+        clearInterval( displayedTime );
+      }
+
+      displayCurrentTime();
+
+      function startTimer( controlId ){
+        var intervalId;
+        var control = document.getElementById(controlId);
+        var seconds = control.value;
+        seconds = seconds - 1;
+        if(seconds === 0){
+          control.value='Done';
+          return;
+        }else{
+          control.value= seconds;
+        }
+        intervalId = setTimeout(function (){startTimer( 'timer' )}, 1000 );
+      }
+
+      function stopTimer(){
+        clearTimeout( intervalId );
+      }
+
+    </script>
+  </body>
+</html>

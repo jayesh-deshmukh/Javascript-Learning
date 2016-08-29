@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      var incrementCount = (function (){
+        var count = 0;
+        return function (){
+          return ++count;
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <input type="button" name="name" value="Test increment" onclick="alert(incrementCount)">
+
+  </body>
+</html>

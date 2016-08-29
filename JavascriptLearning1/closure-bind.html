@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <button id="test">Button</button>
+        <script>
+//        var button = {
+//            clicked : false,
+//            click: function () {
+//                if( this.clicked === true ) {
+//                    console.log( 'Button already clicked');
+//                }else{
+//                    this.clicked = true;
+//                    console.log('Button clicked');
+//                }
+//            }
+//        };
+
+            function bind ( context, action ) {
+                return function () {
+                    context[action].call(button, context );
+                }
+            }
+            var button = {
+                clicked: false,
+                click: function(){
+
+                    if ( button.clicked ){
+
+                        console.log( "The button was already clicked" );
+                    }else{
+                        this.clicked = true;
+                        console.log( 'clicking button');
+                    }
+                }
+            };
+
+            var elem = document.getElementById('test');
+            elem.addEventListener( "click", bind( button, 'click' ) , false );
+
+        </script>
+
+</body>
+</html>

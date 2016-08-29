@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function Cook() {
+        var dishes = 0;
+
+        this.addDish = function () {
+            dishes ++ ;
+        }
+
+        this.getDishes = function () {
+            return dishes;
+        }
+    }
+
+    var cook = new Cook();
+    cook.addDish();
+    console.log( 'Number of dishes =' + cook.getDishes() );
+
+    function Ninja( kicks ) {
+        var feints = 0;
+        this.jayesh = 1;
+        this.getFeints = function(){
+            return feints;
+        };
+        this.kicks = kicks;
+        this.feint = function(){
+            feints++;
+        };
+    }
+    var ninja = new Ninja( 10 );
+    ninja.feint();
+    console.log (ninja.getFeints() == 1 +
+            "We're able to access the internal feint count.");
+    console.log(ninja.feints === undefined +
+            "And the private data is inaccessible to us.");
+    console.log( ninja.kicks + 'Number of kicks' );
+</script>
+<body>
+
+</body>
+</html>
